@@ -32,7 +32,8 @@ ENV PATH /home/miniconda2/bin:$PATH
 
 # Install necessary python package
 WORKDIR /home
-RUN conda install cython numpy matplotlib seaborn multiprocess
+RUN conda install cython numpy matplotlib seaborn \
+  && pip2 install -q multiprocess
 
 WORKDIR /home
 RUN git clone https://github.com/pblischak/HyDe.git \
