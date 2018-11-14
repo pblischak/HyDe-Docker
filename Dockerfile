@@ -24,9 +24,15 @@ RUN apt-get update -qq \
                      tk-dev \
                      python-pip
 
+# Install miniconda
+WORKDIR /home
+RUN wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh \
+  && bash Miniconda2-latest-Linux-x86_64.sh -b -p /home/miniconda2 \
+ENV PATH $PATH:/home/miniconda2/bin
+
 # Install necessary python package
-WORKDIR /tmp
-RUN pip install -q -U cython numpy matplotlib seaborn multiprocess
+WORKDIR /home
+RUN conda install cython numpy matplotlib seaborn multiprocess
 
 WORKDIR /home
 RUN git clone https://github.com/pblischak/HyDe.git \
