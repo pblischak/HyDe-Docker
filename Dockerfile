@@ -31,7 +31,7 @@ RUN pip install -q -U cython numpy matplotlib seaborn multiprocess
 WORKDIR /home
 RUN git clone https://github.com/pblischak/HyDe.git \
   && cd HyDe \
-  && pip install -U .
+  && pip install -U . \
   && make test
 
 WORKDIR /home
