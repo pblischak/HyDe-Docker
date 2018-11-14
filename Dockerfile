@@ -37,7 +37,7 @@ RUN /home/miniconda2/bin/pip install cython numpy matplotlib seaborn multiproces
 WORKDIR /home
 RUN git clone https://github.com/pblischak/HyDe.git \
   && cd HyDe \
-  && /home/minconda2/bin/pip install -U . \
+  && /home/miniconda2/bin/pip install -U . \
   && make test
 
 WORKDIR /home
